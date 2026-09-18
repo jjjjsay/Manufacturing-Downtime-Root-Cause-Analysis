@@ -1,0 +1,12 @@
+Factor,Description,Operator Error,Total_Minutes,Occurrences,Avg_Minutes_per_Occurrence
+6,Machine adjustment,Yes,332.0,12,27.666666666666668
+7,Machine failure,No,254.0,11,23.09090909090909
+4,Inventory shortage,No,225.0,9,25.0
+2,Batch change,Yes,160.0,5,32.0
+8,Batch coding error,Yes,145.0,6,24.166666666666668
+12,Other,No,74.0,6,12.333333333333334
+5,Product spill,Yes,57.0,3,19.0
+10,Calibration error,Yes,49.0,3,16.333333333333332
+3,Labeling error,No,42.0,2,21.0
+11,Label switch,Yes,33.0,3,11.0
+9,Conveyor belt jam,No,17.0,1,17.0
