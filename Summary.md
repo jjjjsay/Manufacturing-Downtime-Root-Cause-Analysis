@@ -125,4 +125,85 @@ efficiency despite also having the highest *proportion* of downtime tied
 to operator error — meaning Charlie's total downtime volume is simply
 lower, not the error mix.
 
-![Operator efficiency](outputs/figures/operator_efficiency.png)
+### 3. Leading downtime factors
+
+| Rank | Factor | Operator error? | Total minutes | Occurrences |
+|---|---|---|---|---|
+| 1 | Machine adjustment | Yes | 332 | 12 |
+| 2 | Machine failure | No | 254 | 11 |
+| 3 | Inventory shortage | No | 225 | 9 |
+| 4 | Batch change | Yes | 160 | 5 |
+| 5 | Batch coding error | Yes | 145 | 6 |
+
+The top 5 factors account for **1,116 of 1,388 total downtime minutes
+(80%)**. Overall, **56% of all downtime is operator-error-related**, and
+44% is equipment/supply-related (machine failure + inventory shortage
+alone are 35% of all downtime and are not operator-fixable through
+
+### 4. Operator-specific error patterns
+
+| Operator | Batch change | Batch coding error | Machine adjustment | Total operator-error min |
+|---|---|---|---|---|
+| **Mac** | **130** | 47 | 15 | 192 |
+| Charlie | 10 | 44 | **118** | 228 |
+| Dennis | 0 | 24 | **120** | 164 |
+| Dee | 20 | 30 | 79 | 192 |
+
+Two clear, specific patterns emerge:
+- **Mac drives 81% of all batch-change downtime** on the line (130 of 160
+  minutes) — a strong signal of a specific skill gap in changeover
+  procedure, not a general performance problem.
+- **Charlie and Dennis together drive 72% of all machine-adjustment
+  downtime** (238 of 332 minutes) — the single largest downtime factor
+  line-wide.
+
+---
+
+## Business Recommendations
+
+1. **Retrain Mac on batch-changeover procedure.** This single, targeted
+   fix addresses 130 minutes of downtime (~9% of all downtime observed)
+   concentrated in one operator and one task — likely the highest
+   ROI action available since it needs no capital investment.
+2. **Standardize and retrain machine-adjustment procedure for Charlie and
+   Dennis**, since together they drive 72% of the line's single largest
+   downtime category. Consider pairing them with Dee or Mac (who have
+   little-to-no adjustment downtime) to shadow and document what those
+   operators do differently.
+3. **Escalate machine failure and inventory shortage to maintenance and
+   supply chain**, not the line team — these two factors are 35% of all
+   downtime (479 minutes) and are not operator-error-driven, so training
+   will not fix them. Investigate a preventive-maintenance schedule and
+   safety-stock levels for input materials.
+4. **Set an efficiency floor and monitor going forward.** Use 64.0% as
+   the current baseline and 66.8% (Charlie, the top performer) as a
+   near-term target for every operator; closing that gap for Mac and
+   Dennis alone would lift line-wide efficiency by an estimated 5–6
+   points with no new equipment.
+5. **Reduce Batch coding error line-wide** (145 minutes, spread fairly
+   evenly across all four operators) — since no single operator drives
+   it, this points to a process or labeling-system issue worth a
+   root-cause review rather than individual coaching.
+
+---
+
+## Next Steps
+
+- **Expand the data window.** This analysis covers one week (38 batches).
+  Re-run the same pipeline over a full month or quarter to confirm these
+  patterns hold and aren't a short-term blip.
+- **Add shift/time-of-day as a dimension** — several batches run
+  overnight; test whether downtime or efficiency varies by shift, which
+  could point to fatigue or staffing-level issues rather than pure skill.
+- **Track efficiency post-intervention.** After the Mac and
+  Charlie/Dennis retraining, re-run `src/analysis.py` on the following
+  weeks' data to measure whether the targeted downtime factors actually
+  drop.
+- **Build a lightweight recurring dashboard** (e.g., a scheduled version
+  of this script feeding a BI tool) so line efficiency and top downtime
+  factors are visible weekly instead of analyzed ad hoc.
+- **Investigate root cause of "Batch coding error"** with the line's
+  labeling/coding system vendor or process owner, since it's evenly
+  distributed across operators rather than concentrated in one person.
+
+---
