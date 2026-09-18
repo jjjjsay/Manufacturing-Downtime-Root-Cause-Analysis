@@ -11,7 +11,7 @@ pinpointing which operators struggle with which specific error types.
 
 ```
 manufacturing-line-productivity/
-├── README.md                          <- you are here
+├── README.md                         
 ├── requirements.txt
 ├── data/
 │   └── raw/
