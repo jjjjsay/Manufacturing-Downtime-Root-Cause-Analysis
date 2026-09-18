@@ -80,3 +80,49 @@ operators, and a **systemic issue** (equipment reliability, inventory
 planning) affecting everyone equally. Closing the gap between the
 lowest- and highest-performing operator alone would recover roughly
 **5–6 percentage points of line efficiency** with no capital investment.
+
+## Skills
+
+- **Python data wrangling** — `pandas` (merge, melt, groupby, pivot_table)
+  to reshape a small multi-table Excel workbook into an analysis-ready
+  fact table
+- **Data cleaning** — handling an edge case where a shift crosses
+  midnight and Excel serializes the time as a full datetime instead of a
+  time-of-day
+- **Metric design** — building an efficiency measure appropriate for
+  aggregation across batches of different sizes, instead of a naive
+  average of ratios
+- **Exploratory & diagnostic analysis** — operator rollups, Pareto-style
+  ranking of downtime causes, and a cross-tab to isolate operator-specific
+  patterns
+- **Data visualization** — `matplotlib` (bar, horizontal bar, heatmap,
+  pie) built for a business audience: labeled thresholds, color-coded
+  categories, and annotated values
+- **Analytics storytelling** — translating table output into a written
+  executive summary and prioritized business recommendations
+
+---
+
+## Results & Business Recommendation
+
+### 1. Current line efficiency: 64.0%
+`Efficiency = Σ(Minimum batch time) / Σ(Actual batch duration)` across all
+38 batches. The line is running at roughly two-thirds of its
+theoretical maximum throughput.
+
+### 2. Operator performance — two operators below average
+
+| Operator | Batches | Efficiency | Avg. downtime / batch | % of downtime from operator error |
+|---|---|---|---|---|
+| **Mac** | 8 | **60.9%** | 41.5 min | 57.8% |
+| **Dennis** | 8 | **63.2%** | 37.8 min | 54.3% |
+| Dee | 11 | 64.1% | 33.6 min | 51.9% |
+| Charlie | 11 | 66.8% | 34.9 min | 59.4% |
+| **Line average** | 38 | **64.0%** | 36.4 min | 56.0% |
+
+Mac and Dennis run below the line average; Charlie has the highest
+efficiency despite also having the highest *proportion* of downtime tied
+to operator error — meaning Charlie's total downtime volume is simply
+lower, not the error mix.
+
+![Operator efficiency](outputs/figures/operator_efficiency.png)
