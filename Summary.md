@@ -125,6 +125,9 @@ efficiency despite also having the highest *proportion* of downtime tied
 to operator error — meaning Charlie's total downtime volume is simply
 lower, not the error mix.
 
+<img width="840" height="540" alt="operator_efficiency" src="https://github.com/user-attachments/assets/66a3b4c9-21e9-41e8-a2de-5e46aa7ef07a" />
+
+
 ### 3. Leading downtime factors
 
 | Rank | Factor | Operator error? | Total minutes | Occurrences |
@@ -139,6 +142,11 @@ The top 5 factors account for **1,116 of 1,388 total downtime minutes
 (80%)**. Overall, **56% of all downtime is operator-error-related**, and
 44% is equipment/supply-related (machine failure + inventory shortage
 alone are 35% of all downtime and are not operator-fixable through
+
+<img width="960" height="600" alt="downtime_by_factor" src="https://github.com/user-attachments/assets/4c26098e-cde7-45ca-b03a-13ac5424c382" />
+<img width="600" height="600" alt="downtime_error_share" src="https://github.com/user-attachments/assets/0aea0b89-7c67-4c74-b179-f8d11ca5f271" />
+
+
 
 ### 4. Operator-specific error patterns
 
@@ -156,6 +164,9 @@ Two clear, specific patterns emerge:
 - **Charlie and Dennis together drive 72% of all machine-adjustment
   downtime** (238 of 332 minutes) — the single largest downtime factor
   line-wide.
+
+<img width="960" height="540" alt="operator_error_heatmap" src="https://github.com/user-attachments/assets/9a84814f-abc6-45e8-add9-acfe066ffb31" />
+
 
 ---
 
